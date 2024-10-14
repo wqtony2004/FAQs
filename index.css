@@ -1,22 +1,25 @@
 :root {
-  --green-color: hsl(75, 94%, 57%);
+  --body-background: hsl(275, 100%, 97%);
+  --body-color: hsl(292, 16%, 49%);
+  --container-background: hsl(0, 0%, 100%);
+  --question-color: hsl(292, 42%, 14%);
+  --question-hover: darkviolet;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Work Sans', serif;
-  background:hsl(275, 100%, 97%);
-  color:hsl(292, 16%, 49%);
+  background:var(--body-background);
+  color:var(--body-color);
   
-  /* align-items: center; */
-  /* display: grid; */
-  /* justify-content: center; */
-  overflow:visible;
+  /* align-items: center;
+  display: grid;
+  justify-content: center; */
 }
 
 .backgroundImage {
-  width: 100%;
+  width: 100%; /* why 100vw cause .mainContainer to change width when expand ??*/
 }
 @media (min-width: 431px){
   .backgroundImage {
@@ -25,17 +28,17 @@ body {
 }
 
 .mainContainer{
+  position: relative;
+  max-width: 80vw;
+  min-width: 20rem;
   margin: -15vh 4vh 12vh 4vh;
   padding:2vh;
   border-radius: 2vh;
+
   display: grid;
+  background:var(--container-background);
   text-align: left;
   font-weight: 700;
-  background:hsl(0, 0%, 100%);
-
-  position: relative;
-  max-width: 80vw;
-  
 }
 @media (min-width: 431px){
   .mainContainer{
@@ -48,10 +51,9 @@ body {
 
 
 .captions {
-  font-size: 4vh;
+  font-size: 2.5rem;
   display:flex;
   align-items: center;
-  font-family: inherit;
 }
 .captions p {
   margin: 2vh 2vh;
@@ -63,17 +65,17 @@ body {
 
 
 .Question {
-  font-size: 2vh;
+  font-size: 1.1rem;
   margin: 2vh 0.6vh;
   display: grid;
   align-items: center;
   grid-template-columns: 5fr 1fr;
   box-sizing: border-box;
-  color:hsl(292, 42%, 14%);
+  color:var(--question-color);
 }
 .Question:hover{
   cursor: pointer;
-  color:darkviolet;
+  color:var(--question-hover);
 }
 .Question p {
   margin-right: 2vh;
