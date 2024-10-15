@@ -4,7 +4,9 @@
   --container-background: hsl(0, 0%, 100%);
   --question-color: hsl(292, 42%, 14%);
   --question-hover: darkviolet;
+  --answer-color: hsl(292, 16%, 49%);
 }
+
 
 body {
   margin: 0;
@@ -12,14 +14,16 @@ body {
   font-family: 'Work Sans', serif;
   background:var(--body-background);
   color:var(--body-color);
-  
-  /* align-items: center;
-  display: grid;
-  justify-content: center; */
-}
 
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
 .backgroundImage {
-  width: 100%; /* why 100vw cause .mainContainer to change width when expand ??*/
+  width: 100vw;
+  overflow: hidden; /* important to make 100vw work with scollbar */
 }
 @media (min-width: 431px){
   .backgroundImage {
@@ -27,12 +31,16 @@ body {
   }
 }
 
+
 .mainContainer{
   position: relative;
-  max-width: 80vw;
-  min-width: 20rem;
-  margin: -15vh 4vh 12vh 4vh;
-  padding:2vh;
+  width: 80vw;
+  max-width: 40rem;
+  min-width: 10rem;
+  padding: 2vh 2vw;
+  box-sizing: border-box;
+  margin: -15vh 10vw;
+  margin-bottom: 12vh;
   border-radius: 2vh;
 
   display: grid;
@@ -42,10 +50,9 @@ body {
 }
 @media (min-width: 431px){
   .mainContainer{
-    max-width: 40vw;
-    margin-left: 30vw;
-    margin-right: 30vw;
-    width:100%;
+    width: 46vw;
+    margin-left: 22vw;
+    margin-right: 22vw;
   }
 }
 
@@ -56,20 +63,20 @@ body {
   align-items: center;
 }
 .captions p {
-  margin: 2vh 2vh;
+  margin: 2vh 2vw;
 }
 .FAQstar {
-  width:10%;
-  margin: 2vh 1vh;
+  width:6%;
+  margin: 2vh 1vw;
 }
 
 
 .Question {
-  margin: 2vh 0.6vh;
+  margin: 2vh 0.6vw;
   display: grid;
   align-items: center;
   grid-template-columns: 5fr 1fr;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   color:var(--question-color);
 }
 .Question:hover{
@@ -82,10 +89,11 @@ body {
 .Answers {
   font-weight: 300;
   margin: 2vh 0.6vh;
-  color: hsl(292, 16%, 49%);
+  color: var(--answer-color);
   display: none;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
+
 
 hr{
   width: 100%;
